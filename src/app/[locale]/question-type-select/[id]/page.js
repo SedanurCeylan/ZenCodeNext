@@ -5,14 +5,15 @@ import {
   createQuestionDistribution,
   updateApplicationStatus,
   fetchApplicationById,
-} from "../firebase/firebaseUpload";
-import Navbar from "../components/Navbar";
-import { useParams, useNavigate } from "react-router";
+} from "@/firebase/firebaseUpload";
+import Navbar from "@/components/Navbar";
+import { useParams, useRouter } from "next/navigation";
+
 
 function QuestionType() {
-  const { id } = useParams();
-
-  const navigate = useNavigate();
+  const params = useParams();
+  const id = params?.id?.toString();
+  const router = useRouter();
 
   const [application, setApplication] = useState(null);
 
@@ -55,7 +56,7 @@ function QuestionType() {
       );
 
       alert("Başarıyla gönderildi!");
-      navigate("/applications");
+      router.push("/applications");
     } catch (error) {
       console.error("Hata oluştu:", error);
       alert("Bir hata oluştu, lütfen tekrar deneyin.");

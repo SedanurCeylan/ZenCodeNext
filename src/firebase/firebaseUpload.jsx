@@ -111,11 +111,14 @@ export const updateApplicationStatus = async (id, status, email, name) => {
     const applicationRef = doc(db, "jobApplications", id);
     await updateDoc(applicationRef, { status: status });
 
-    sendEmail(email, status, name, id);
+    if (status === "Test Aşamasında") {
+      sendEmail(email, status, name, id);
+    }
   } catch (error) {
     console.error("Durum güncelleme hatası:", error);
   }
 };
+
 export const testApplicationStatus = async (id, isSuccessful) => {
   try {
     const applicationRef = doc(db, "jobApplications", id);
@@ -162,6 +165,7 @@ export const fetchApplicationById = async (id) => {
     return null;
   }
 };
+
 
 export const fetchQuestionType = async (userId) => {
   try {
