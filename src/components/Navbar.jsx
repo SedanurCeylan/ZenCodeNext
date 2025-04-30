@@ -1,9 +1,12 @@
 'use client';
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 function Navbar() {
   const [status, setStatus] = useState(null);
   const [name, setName] = useState(null);
+  const t = useTranslations()
+  const locale = useLocale()
 
   useEffect(() => {
     const userStatus = localStorage.getItem("status");
@@ -33,7 +36,7 @@ function Navbar() {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/">
-                Anasayfa
+                {t("home")}
               </a>
             </li>
             <li className="nav-item">
@@ -87,7 +90,7 @@ function Navbar() {
               </ul>
             </div>
           ) : (
-            <a className="btn btn-primary" href="/login">
+            <a className="btn btn-primary" href={`/${locale}/login`}>
               Giriş Yap
             </a>
           )}
