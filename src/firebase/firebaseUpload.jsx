@@ -1,6 +1,4 @@
-
 import {
-
   collection,
   addDoc,
   doc,
@@ -10,6 +8,7 @@ import {
   updateDoc,
   query,
   where,
+  deleteDoc,
 } from "firebase/firestore";
 import emailjs from "@emailjs/browser";
 import {
@@ -23,11 +22,27 @@ export const uploadJobs = async (job) => {
   try {
     const jobsCollection = collection(db, "job");
 
-    await addDoc(jobsCollection, job);
-
-    console.log("İlan Siteye eklendi!");
+    if (job.id) {
+      const jobRef = doc(db, "job", job.id);
+      const { id, ...jobData } = job;
+      await setDoc(jobRef, jobData, { merge: true });
+      console.log("İlan güncellendi!");
+    } else {
+      await addDoc(jobsCollection, job);
+      console.log("Yeni ilan eklendi!");
+    }
   } catch (error) {
-    console.error("Hata oluştu:", error);
+    console.error("İlan yüklenirken hata:", error);
+  }
+};
+
+export const deleteJob = async (id) => {
+  try {
+    const jobDoc = doc(db, "job", id);
+    await deleteDoc(jobDoc);
+    console.log("İlan başarıyla silindi!");
+  } catch (error) {
+    console.error("Silme işlemi sırasında hata oluştu:", error);
   }
 };
 
@@ -166,7 +181,6 @@ export const fetchApplicationById = async (id) => {
   }
 };
 
-
 export const fetchQuestionType = async (userId) => {
   try {
     const q = query(
@@ -187,9 +201,6 @@ export const fetchQuestionType = async (userId) => {
     return [];
   }
 };
-
-
-
 
 export const registerUser = async (email, password) => {
   const auth = getAuth();

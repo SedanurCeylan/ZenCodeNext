@@ -16,6 +16,7 @@ const Position = () => {
                     ...doc.data(),
                 }));
                 setPositions(positionsList);
+                console.log("Pozisyonlar:", positionsList);
             } catch (error) {
                 console.error("Veri çekme hatası:", error);
             }
