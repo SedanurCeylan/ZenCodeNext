@@ -5,11 +5,13 @@ function HomePage() {
   return (
     <div >
       <Navbar />
-      <header className="bg-dark text-white text-center py-10">
-        <div className="container">
-          <h1 className="display-4">ZenCode - Modern Yazılım Çözümleri</h1>
-          <p className="lead">Yenilikçi, güvenilir ve sürdürülebilir yazılım hizmetleri sunuyoruz.</p>
-          <a href="#services" className="btn btn-primary btn-lg mt-3">Hizmetlerimizi Keşfedin</a>
+      <header className="bg-black text-white text-center py-10 vh-100 d-flex flex-column justify-content-center align-items-center">
+        <p className="border border-opacity-25 border-white rounded-5 px-3 py-2">denemedenemedeneme</p>
+        <div className="container d-flex flex-column justify-content-center align-items-center">
+          <h1 className="display-4 fw-semibold fs-70">İşe alım süreçlerinde <br/>yeni bir dönem</h1>
+          <p className="lead opacity-75">Yetenekleri keşfedin, ekibinizi büyütün, şirketinizi bir adım öne taşıyın.</p>
+          <a href="#services" className="btn btn-primary btn-lg mt-3">Şimdi Deneyin</a>
+          <img  src="1.png"/>
         </div>
       </header>
 

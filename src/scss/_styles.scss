@@ -2,6 +2,11 @@
   width: 40%;
 }
 
+body {
+  font-family: var(--font-manrope), sans-serif;
+}
+
+
 .primary-button {
   background-color: #111827;
   color: white;
@@ -61,4 +66,10 @@
     background-color: transparent;
     border: none;
     outline: none;
+}
+
+
+
+.navbar {
+  background-color: #111827;
 }

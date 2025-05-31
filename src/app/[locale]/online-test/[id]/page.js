@@ -1,16 +1,16 @@
 'use client';
 
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router";
 import {
   testApplicationStatus,
   fetchQuestionType,
-} from "../firebase/firebaseUpload";
+} from "@/firebase/firebaseUpload";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../firebase/firebase";
-import questionsEasy from "../../data/questionsEasy.json";
-import questionsMiddle from "../../data/questionsMiddle.json";
-import questionsHard from "../../data/questionsHard.json";
+import { db } from "@/firebase/firebase";
+import questionsEasy from "@/../data/questionsEasy.json";
+import questionsMiddle from "@/../data/questionsMiddle.json";
+import questionsHard from "@/../data/questionsHard.json";
+import { useParams, useRouter } from "next/navigation";
 
 const OnlineTest = () => {
   const [questions, setQuestions] = useState([]);
@@ -22,8 +22,9 @@ const OnlineTest = () => {
   const [loading, setLoading] = useState(true);
   const [questionType, setQuestionType] = useState(null);
 
-  const userId = useParams().id;
-  const navigate = useNavigate();
+  const params = useParams();
+  const userId = params.id;
+  const router = useRouter();
 
   useEffect(() => {
     const checkUserStatus = async () => {
@@ -139,7 +140,7 @@ const OnlineTest = () => {
           <h1 className="text-danger">Tekrar giriş yapamazsınız!</h1>
           <button
             className="btn btn-primary mt-3"
-            onClick={() => navigate("/")}
+            onClick={() => router.push("/")}
           >
             Ana Sayfaya Dön
           </button>

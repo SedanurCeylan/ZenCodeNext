@@ -16,9 +16,9 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+    <nav className="navbar navbar-expand-lg bg-black fixed-top py-3 border-bottom border-opacity-10 border-white">
       <div className="container">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand text-white" href="#">
           ZenCode
         </a>
         <button
@@ -34,13 +34,13 @@ function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+            <li className="nav-item ">
+              <a className="nav-link active text-white" aria-current="page" href="/">
                 {t("home")}
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/position">
+              <a className="nav-link text-white" href="/position">
                 Açık Pozisyonlar
               </a>
             </li>
@@ -48,10 +48,11 @@ function Navbar() {
           {status ? (
             <div className="dropdown">
               <button
-                className="dropdown-toggle profile-badge"
+                className="dropdown-toggle profile-badge text-white "
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+              
               >
                 {name}
               </button>
@@ -64,7 +65,7 @@ function Navbar() {
                 {status === "admin" && (
                   <>
                     <li>
-                      <a className="dropdown-item" href="/uploadjobform">
+                      <a className="dropdown-item" href="/uploadjobform/new">
                         Açık Pozisyonları Yönet
                       </a>
                     </li>

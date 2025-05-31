@@ -1,0 +1,45 @@
+{
+  "jobApplications": [
+    {
+      "name": "Emirhan",
+      "surname": "Körhan",
+      "birthyear": "2025-03-11",
+      "gender": "Erkek",
+      "phonenumber": 5344444444,
+      "address": "Körfez Mahallesi",
+      "salary": 100000,
+      "motivation": "Çok katılmak istiyorum.",
+      "email": "korhanemirhann@gmail.com",
+      "school": "Samsun Üniversitesi",
+      "department": "Yazılım Mühendisliği",
+      "grade": "5. Sınıf",
+      "position": "Front-End Geliştirici",
+      "foreignlanguage": [
+        "İngilizce"
+      ],
+      "experience": [
+        "Bilgi İşlem Müdürlüğü"
+      ],
+      "technologies": [
+        "HTML",
+        "CSS"
+      ],
+      "projects": [
+        "Blog Projesi"
+      ],
+      "certificates": [
+        "Geleceği Yazanlar"
+      ],
+      "volunteerwork": [
+        "Lösev"
+      ],
+      "socialmedia": [
+        "https://www.linkedin.com/in/emirkrhan/"
+      ],
+      "references": [
+        "Varol Maksutoğlu"
+      ],
+      "id": 1
+    }
+  ]
+}
