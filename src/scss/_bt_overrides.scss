@@ -51,5 +51,33 @@ $font-sizes: (
   //32px
 
   70: 4.375rem,
-    //70px
+  55: 3.5rem,
+  18: 1.125rem
+);
+
+// ⚠️ Önce Bootstrap değişkenlerini ve fonksiyonlarını import et
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/maps";
+@import "node_modules/bootstrap/scss/mixins";
+@import "node_modules/bootstrap/scss/utilities"; // <--- BU dosya $utilities'yi tanımlar
+
+// 🛠️ Şimdi override yapabilirsin
+$bg-opacity-values: (
+  5: 0.05
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "bg-opacity": map-merge(
+      map-get($utilities, "bg-opacity"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "bg-opacity"), "values"),
+          $bg-opacity-values
+        )
+      )
+    )
+  )
 );
